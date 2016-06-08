@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18C778531D08597100E81EBE"
+               BlueprintIdentifier = "18C777DA1D08182C00E81EBE"
                BuildableName = "CustomTextViewExample.app"
                BlueprintName = "CustomTextViewExample"
                ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18C778671D08597100E81EBE"
+               BlueprintIdentifier = "18C777EE1D08182D00E81EBE"
                BuildableName = "CustomTextViewExampleTests.xctest"
                BlueprintName = "CustomTextViewExampleTests"
                ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18C778721D08597100E81EBE"
+               BlueprintIdentifier = "18C777F91D08182D00E81EBE"
                BuildableName = "CustomTextViewExampleUITests.xctest"
                BlueprintName = "CustomTextViewExampleUITests"
                ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18C778531D08597100E81EBE"
+            BlueprintIdentifier = "18C777DA1D08182C00E81EBE"
             BuildableName = "CustomTextViewExample.app"
             BlueprintName = "CustomTextViewExample"
             ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18C778531D08597100E81EBE"
+            BlueprintIdentifier = "18C777DA1D08182C00E81EBE"
             BuildableName = "CustomTextViewExample.app"
             BlueprintName = "CustomTextViewExample"
             ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "18C778531D08597100E81EBE"
+            BlueprintIdentifier = "18C777DA1D08182C00E81EBE"
             BuildableName = "CustomTextViewExample.app"
             BlueprintName = "CustomTextViewExample"
             ReferencedContainer = "container:CustomTextViewExample.xcodeproj">
