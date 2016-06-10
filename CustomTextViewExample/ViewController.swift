@@ -22,7 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: defaultTableCellIdentifier)
-    dataArray.addObjectsFromArray(["hello","hi","wow","hi","wow","hi","wow","hi","wow","hi","wow","hi","wow","hi","wow","hi","wow","hi","wow"])
+    dataArray.addObjectsFromArray(["Something1","Something2","Something3","Something4","Something5","Something6","Something7","Something8"])
         self.setupChatView()
         self.setupLayoutConstraints()
         self.view.layoutIfNeeded()
