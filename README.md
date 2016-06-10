@@ -24,6 +24,7 @@ func updateCharacterCount(currentChar:Int,maxChar:Int)
 ```
 
 ##Contribution
+Contributions are welcome.Just open an issue on GitHub to discuss a point or request a feature or send a Pull Request with your suggestion.
 
 #License
 CustomTextView is available under the [MIT license](https://github.com/sunilsharma08/CustomTextView/blob/master/LICENSE.md).
