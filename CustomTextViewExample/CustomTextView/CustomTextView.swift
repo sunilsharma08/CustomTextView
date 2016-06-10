@@ -46,24 +46,24 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         Appearance.textViewBackgroundColor = color
     }
     
-    var placeholder:String?{
-        didSet{
+    var placeholder:String? {
+        didSet {
             if let placeholderText = self.placeholder{
                 self.textView.placeholderAttributedText = NSAttributedString(string: "\(placeholderText)", attributes: [NSFontAttributeName: self.textView.font, NSForegroundColorAttributeName: UIColor(white: 0.8, alpha: 1)])
             }
         }
     }
     
-    var includeBlur:Bool = true{
+    var includeBlur:Bool = true {
         didSet{
             self.blurredBackgroundView.hidden = !includeBlur
         }
     }
     
-    var textViewInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    var textViewInsets:UIEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     weak var delegate: CustomTextViewDelegate?
     var maxCharCount:Int?
-    var showCharCount:Bool?{
+    var showCharCount:Bool? {
         didSet{
             self.wordLimitLabel.hidden = !showCharCount!
         }
@@ -92,7 +92,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         }
     }
     
-    func animateContraintsChange(compeletionHandler:((isAnimationCompleted:Bool) -> Void)?){
+    private func animateContraintsChange(compeletionHandler:((isAnimationCompleted:Bool) -> Void)?){
         UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [.CurveEaseInOut, .BeginFromCurrentState , .LayoutSubviews], animations: { () -> Void in
             self.layoutIfNeeded()
         }) { (finished) -> Void in
@@ -118,10 +118,10 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         //fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.showCharCount = true
-        self.maxCharCount = 250
+        //self.maxCharCount = 250
         self.opaque = true
         self.setupSendButton()
         self.setupSendButtonConstraints()
@@ -133,7 +133,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.setupBlurredBackgroundViewConstraints()
     }
     
-    func setupWordLimitLabel(){
+    private func setupWordLimitLabel(){
         if let charCount = self.maxCharCount{
             self.wordLimitLabel.text = "0/\(charCount)"
         }
@@ -148,7 +148,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addSubview(wordLimitLabel)
     }
     
-    func setupWordLimitLabelConstraints(){
+    private func setupWordLimitLabelConstraints(){
         self.wordLimitLabel.translatesAutoresizingMaskIntoConstraints = false
         self.wordLimitLabel.removeConstraints(self.wordLimitLabel.constraints)
         let rightConstraint = NSLayoutConstraint(item: self, attribute: .Right, relatedBy: .Equal, toItem: self.wordLimitLabel, attribute: .Right, multiplier: 1.0, constant: textViewInsets.right)
@@ -161,7 +161,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addConstraints([heightContraints, widthConstraint, rightConstraint, topConstraint])
     }
     
-    func setupTextView() {
+    private func setupTextView() {
         textView.bounds = UIEdgeInsetsInsetRect(self.bounds, self.textViewInsets)
         textView.sizeableTextViewDelegate = self
         textView.delegate = self
@@ -174,7 +174,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addSubview(textView)
     }
     
-    func styleTextView() {
+    private func styleTextView() {
         textView.layer.rasterizationScale = UIScreen.mainScreen().scale
         textView.layer.shouldRasterize = true
         textView.layer.cornerRadius = 5.0
@@ -184,7 +184,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         textView.keyboardDismissMode = .Interactive
     }
     
-    func setupSendButton() {
+    private func setupSendButton() {
         self.sendButton.enabled = false
         self.sendButton.setTitle("Send", forState: .Normal)
         self.sendButton.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
@@ -194,7 +194,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.enableDisableSendButton(self.textView)
     }
     
-    func setupSendButtonConstraints() {
+    private func setupSendButtonConstraints() {
         self.sendButton.translatesAutoresizingMaskIntoConstraints = false
         let rightConstraint = NSLayoutConstraint(item: self, attribute: .Right, relatedBy: .Equal, toItem: self.sendButton, attribute: .Right, multiplier: 1.0, constant: textViewInsets.right)
         let bottomConstraint = NSLayoutConstraint(item: self, attribute: .Bottom, relatedBy: .Equal, toItem: self.sendButton, attribute: .Bottom, multiplier: 1.0, constant: textViewInsets.bottom)
@@ -203,7 +203,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addConstraints([sendButtonHeightConstraint, sendButtonWidthConstraint, rightConstraint, bottomConstraint])
     }
     
-    func setupTextViewConstraints() {
+    private func setupTextViewConstraints() {
         self.textView.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: self.textView, attribute: .Top, multiplier: 1.0, constant: -textViewInsets.top)
         let leftConstraint = NSLayoutConstraint(item: self, attribute: .Left, relatedBy: .Equal, toItem: self.textView, attribute: .Left, multiplier: 1, constant: -textViewInsets.left)
@@ -213,12 +213,12 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addConstraints([topConstraint, leftConstraint, bottomConstraint, rightConstraint, heightConstraint])
     }
     
-    func setupBlurredBackgroundView() {
+    private func setupBlurredBackgroundView() {
         self.addSubview(self.blurredBackgroundView)
         self.sendSubviewToBack(self.blurredBackgroundView)
     }
     
-    func setupBlurredBackgroundViewConstraints() {
+    private func setupBlurredBackgroundViewConstraints() {
         self.blurredBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(item: self, attribute: .Top, relatedBy: .Equal, toItem: self.blurredBackgroundView, attribute: .Top, multiplier: 1.0, constant: 0)
         let leftConstraint = NSLayoutConstraint(item: self, attribute: .Left, relatedBy: .Equal, toItem: self.blurredBackgroundView, attribute: .Left, multiplier: 1.0, constant: 0)
@@ -227,7 +227,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.addConstraints([topConstraint, leftConstraint, bottomConstraint, rightConstraint])
     }
     
-    func stylize() {
+    private func stylize() {
         self.textView.backgroundColor = Appearance.textViewBackgroundColor
         self.sendButton.tintColor = Appearance.tintColor
         self.textView.tintColor = Appearance.tintColor

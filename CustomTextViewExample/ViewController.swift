@@ -13,7 +13,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     let defaultTableCellIdentifier = "defaultCellIdentifier"
     let dataArray = NSMutableArray()
-    let commentView: CustomTextView = CustomTextView(frame: CGRectZero)
+    let customtTextView: CustomTextView = CustomTextView(frame: CGRectZero)
     var bottomChatViewConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -63,23 +63,24 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func setupChatView(){
-        self.view.addSubview(commentView)
-        commentView.delegate = self
-        commentView.placeholder = "Write a comment..."
-        commentView.textView.keyboardDismissMode = .OnDrag
+        self.view.addSubview(customtTextView)
+        customtTextView.delegate = self
+        customtTextView.placeholder = "Write a comment..."
+        customtTextView.maxCharCount = 250
+        customtTextView.textView.keyboardDismissMode = .OnDrag
     }
     
     func setupLayoutConstraints() {
-        self.commentView.translatesAutoresizingMaskIntoConstraints = false
+        self.customtTextView.translatesAutoresizingMaskIntoConstraints = false
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints(self.chatInputConstraints())
         self.view.addConstraints(self.tableViewConstraints())
     }
     
     func chatInputConstraints() -> [NSLayoutConstraint] {
-        self.bottomChatViewConstraint = NSLayoutConstraint(item: self.commentView, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0)
-        let leftConstraint = NSLayoutConstraint(item: self.commentView, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: self.commentView, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: 0.0)
+        self.bottomChatViewConstraint = NSLayoutConstraint(item: self.customtTextView, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0)
+        let leftConstraint = NSLayoutConstraint(item: self.customtTextView, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        let rightConstraint = NSLayoutConstraint(item: self.customtTextView, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: 0.0)
         return [leftConstraint, self.bottomChatViewConstraint, rightConstraint]
     }
     
@@ -87,7 +88,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0)
         let rightConstraint = NSLayoutConstraint(item: self.tableView, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: 0.0)
         let topConstraint = NSLayoutConstraint(item: self.tableView, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: self.tableView, attribute: .Bottom, relatedBy: .Equal, toItem: self.commentView, attribute: .Top, multiplier: 1.0, constant: 0)
+        let bottomConstraint = NSLayoutConstraint(item: self.tableView, attribute: .Bottom, relatedBy: .Equal, toItem: self.customtTextView, attribute: .Top, multiplier: 1.0, constant: 0)
         return [rightConstraint, leftConstraint, topConstraint, bottomConstraint]
     }
     
