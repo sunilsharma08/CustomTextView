@@ -16,6 +16,40 @@ CustomTextView makes easy to customise textview like textview size will change a
 ## How to use
 Drag the folder "CustomTextView" with the source files into your project.
 
+Create instance of CustomTextView
+```swift
+let customtTextView: CustomTextView = CustomTextView(frame: CGRectMake(0,80,320,40))
+```
+and start using it.
+
+### Placeholder
+
+#### Plain text
+```swift
+customtTextView.placeholder = "Write something..."
+```
+#### Attributed text
+```swift
+customtTextView.textView.placeholderAttributedText = NSAttributedString(string: "Write something...", 
+                                                    attributes: [NSForegroundColorAttributeName: UIColor(white: 0.8, alpha: 1)])
+```
+### Character limit
+```swift
+var maxCharCount:Int?
+```
+### Show total character
+```swift
+var showCharCount:Bool?
+```
+### Show send button button on right side
+```swift
+var showSendButton:Bool
+```
+### Give padding to textview
+```swift
+var textViewInsets:UIEdgeInsets
+```
+
 ## Delegates
 ```swift
 func customTextViewDidResize(chatInput: CustomTextView)
