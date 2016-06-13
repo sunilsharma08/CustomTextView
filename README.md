@@ -49,22 +49,22 @@ var textViewInsets:UIEdgeInsets
 ```
 
 ## Delegates
-This is optional delegate method and this is called whenever textview size is changed.
-Parameters:
+This is optional delegate method and this is called whenever textview size is changed.<br>
+Parameters:<br>
 customTextView - TextView
 ```swift
 func customTextViewDidResize(customTextView: CustomTextView)
 ```
-This is optional delegate method. This method is called when user click on send button.
-Parameters:
-customTextView - TextView
+This is optional delegate method. This method is called when user click on send button.<br>
+Parameters:<br>
+customTextView - TextView<br>
 message - String in textview
 ```swift
 func customTextView(customTextView: CustomTextView, didSendMessage message: String)
 ```
-This is optional delegate method. This method is called whenever character in textview change.This method can be ued to update character count.
-Parameters:
-currentChar - Total number of character currently present in textview.
+This is optional delegate method. This method is called whenever character in textview change.This method can be ued to update character count.<br>
+Parameters:<br>
+currentChar - Total number of character currently present in textview.<br>
 maxChar - Max character allowed.
 ```swift
 func updateCharacterCount(currentChar:Int,maxChar:Int)
