@@ -21,14 +21,12 @@ Create instance of CustomTextView
 let customtTextView: CustomTextView = CustomTextView(frame: CGRectMake(0,80,320,40))
 ```
 and start using it.
-
 ### Placeholder
-
-#### Plain text
+#### Plain placeholder
 ```swift
 customtTextView.placeholder = "Write something..."
 ```
-#### Attributed text
+#### Attributed placeholder
 ```swift
 customtTextView.textView.placeholderAttributedText = NSAttributedString(string: "Write something...", 
                                                     attributes: [NSForegroundColorAttributeName: UIColor(white: 0.8, alpha: 1)])
@@ -51,9 +49,24 @@ var textViewInsets:UIEdgeInsets
 ```
 
 ## Delegates
+This is optional delegate method and this is called whenever textview size is changed.
+Parameters:
+customTextView - TextView
 ```swift
-func customTextViewDidResize(chatInput: CustomTextView)
-func customTextView(chatInput: CustomTextView, didSendMessage message: String)
+func customTextViewDidResize(customTextView: CustomTextView)
+```
+This is optional delegate method. This method is called when user click on send button.
+Parameters:
+customTextView - TextView
+message - String in textview
+```swift
+func customTextView(customTextView: CustomTextView, didSendMessage message: String)
+```
+This is optional delegate method. This method is called whenever character in textview change.This method can be ued to update character count.
+Parameters:
+currentChar - Total number of character currently present in textview.
+maxChar - Max character allowed.
+```swift
 func updateCharacterCount(currentChar:Int,maxChar:Int)
 ```
 
