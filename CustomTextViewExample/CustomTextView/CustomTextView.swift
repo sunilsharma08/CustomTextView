@@ -233,7 +233,7 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         self.backgroundColor = Appearance.backgroundColor
     }
     
-    func sizeableTextViewDidChangeSize(textView: SizeableTextView) {
+    func sizeableTextViewDidChangeSize(sizeableTextView: SizeableTextView) {
         let textViewHeight = CGRectGetHeight(textView.bounds)
         if textView.text.characters.count == 0 {
             let minHeight = self.textView.font.lineHeight + textViewInsets.top + textViewInsets.bottom

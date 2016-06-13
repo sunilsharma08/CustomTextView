@@ -10,7 +10,7 @@ import UIKit
 
 //Delegate
 @objc protocol SizeableTextViewDelegate:UITextViewDelegate {
-    func sizeableTextViewDidChangeSize(chatTextView: SizeableTextView)
+    func sizeableTextViewDidChangeSize(sizeableTextView: SizeableTextView)
 }
 
 class SizeableTextView: UITextView,NSLayoutManagerDelegate {
