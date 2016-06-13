@@ -92,11 +92,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return [rightConstraint, leftConstraint, topConstraint, bottomConstraint]
     }
     
-    func customTextView(chatInput: CustomTextView, didSendMessage message: String) {
+    func customTextView(customTextView: CustomTextView, didSendMessage message: String) {
         //Chat send button is pressed
     }
     
-    func chatViewDidResize(chatInput: CustomTextView) {
+    func chatViewDidResize(customTextView: CustomTextView) {
         //ChatView size is updated
     }
     

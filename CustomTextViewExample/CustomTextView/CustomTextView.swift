@@ -10,8 +10,8 @@ import UIKit
 
 // MARK: Chat Input
 @objc protocol CustomTextViewDelegate:UITextViewDelegate {
-    optional func customTextViewDidResize(chatInput: CustomTextView)
-    optional func customTextView(chatInput: CustomTextView, didSendMessage message: String)
+    optional func customTextViewDidResize(customTextView: CustomTextView)
+    optional func customTextView(customTextView: CustomTextView, didSendMessage message: String)
     optional func updateCharacterCount(currentChar:Int,maxChar:Int)
 }
 
@@ -115,13 +115,11 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         print("custom chat view xib")
         self.setup()
         self.stylize()
-        //fatalError("init(coder:) has not been implemented")
     }
     
     private func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.showCharCount = true
-        //self.maxCharCount = 250
         self.opaque = true
         self.setupSendButton()
         self.setupSendButtonConstraints()
