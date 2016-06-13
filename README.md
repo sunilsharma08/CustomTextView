@@ -35,11 +35,11 @@ customtTextView.textView.placeholderAttributedText = NSAttributedString(string: 
 ```swift
 var maxCharCount:Int?
 ```
-### Show total character
+### Show/hide total character
 ```swift
 var showCharCount:Bool?
 ```
-### Show send button button on right side
+### Show/hide send button button on right side
 ```swift
 var showSendButton:Bool
 ```
