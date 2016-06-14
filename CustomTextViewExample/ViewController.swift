@@ -22,7 +22,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: defaultTableCellIdentifier)
-    dataArray.addObjectsFromArray(["Something1","Something2","Something3","Something4","Something5","Something6","Something7","Something8"])
+        self.tableView.keyboardDismissMode = .OnDrag
+        dataArray.addObjectsFromArray(["Something1","Something2","Something3","Something4","Something5","Something6","Something7","Something8"])
         self.setupChatView()
         self.setupLayoutConstraints()
         self.view.layoutIfNeeded()
@@ -30,7 +31,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Comments"
+        self.navigationItem.title = "CustomTextView"
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
@@ -65,9 +66,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func setupChatView(){
         self.view.addSubview(customtTextView)
         customtTextView.delegate = self
-        customtTextView.placeholder = "Write a comment..."
+        customtTextView.placeholder = "Write something..."
         customtTextView.maxCharCount = 250
-        customtTextView.textView.keyboardDismissMode = .OnDrag
     }
     
     func setupLayoutConstraints() {
@@ -93,11 +93,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func customTextView(customTextView: CustomTextView, didSendMessage message: String) {
-        //Chat send button is pressed
+        //Chat send button is pressed.
+        let indexPath = NSIndexPath(forRow: 0 , inSection: 0)
+        self.tableView.beginUpdates()
+        self.dataArray.insertObject(message, atIndex: 0)
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Top)
+        self.tableView.endUpdates()
+        self.tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
     
     func chatViewDidResize(customTextView: CustomTextView) {
-        //ChatView size is updated
+        //ChatView size is updated.
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -81,11 +81,11 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
     
     var showSendButton:Bool = true {
         didSet{
-            if (showSendButton == true){
+            if (showSendButton == true) {
                 self.sendButtonWidthConstraint.constant = sendButtonDefaultWidth
                 self.animateContraintsChange(nil)
             }
-            else{
+            else {
                 self.sendButtonWidthConstraint.constant = 0
                 self.animateContraintsChange(nil)
             }
@@ -179,7 +179,6 @@ class CustomTextView: UIView,SizeableTextViewDelegate {
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(white: 0.0, alpha: 0.2).CGColor
         textView.inputAccessoryView = UIView()
-        textView.keyboardDismissMode = .Interactive
     }
     
     private func setupSendButton() {
