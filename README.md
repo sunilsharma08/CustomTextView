@@ -1,10 +1,12 @@
 # CustomTextView
 
-CustomTextView makes easy to customise textview like textview size will change as text size increases.
+CustomTextView makes easy to customise textview.
 
-#Documentation in progress...
-
-## Sreenshots
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/sunilsharma08/CustomTextView/master/CustomTextViewDemo.gif" alt="CustomTextView" width="320" height="568"/></td>
+  </tr>
+</table>
 
 ## Feature
 * Resizeable textview
